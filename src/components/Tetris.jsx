@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { createStage, checkCollision } from '../gameHelpers';
 import { StyledTetris, StyledTetrisWrapper } from './styles/StyledTetris';
 
+import { useInterval } from '../hooks/useInterval';
 import { usePlayer } from '../hooks/usePlayer';
 import { useStage } from '../hooks/useStage';
 
@@ -42,6 +43,7 @@ const Tetris = () => {
 
   const startGame = () => {
     setStage(createStage());
+    setDropTime(1000);
     resetPlayer();
     setGameOver(false);
   }
@@ -59,7 +61,18 @@ const Tetris = () => {
   }
 
   const dropPlayer = () => {
+    setDropTime(null);
     drop();
+  }
+
+  const stop = (e) => {
+    if (!gameOver) {
+      switch (e.key) {
+        case 'ArrowDown':
+        setDropTime(1000);
+        break
+      }
+    }
   }
 
   const move = (e) => {
@@ -83,12 +96,19 @@ const Tetris = () => {
         case 'e':
         rotateRight();
         break
+        // case 'Space':
+        // startGame();
+        // break
       }
     }
   }
 
+  useInterval(() => {
+    drop();
+  }, dropTime);
+
   return (
-    <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)}>
+    <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={e => stop(e)}>
     <StyledTetris>
     <Stage stage={stage} />
     <aside>

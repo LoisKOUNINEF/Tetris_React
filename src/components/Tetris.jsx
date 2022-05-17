@@ -19,7 +19,7 @@ const Tetris = () => {
 
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage, clearedRows] = useStage(player, resetPlayer);
-  const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(clearedRows);
+  const [score, setScore, rows, setRows, level, setLevel, currentBest, setCurrentBest] = useGameStatus(clearedRows);
 
   const movePlayer = dir => {
     if (!checkCollision(player, stage, { x: dir, y: 0})) {
@@ -51,6 +51,7 @@ const Tetris = () => {
     setScore(0);
     setRows(0);
     setLevel(0);
+    setCurrentBest(localStorage.bestScore ? JSON.parse(localStorage.bestScore) : 0);
   }
 
   const drop = () => {
@@ -126,11 +127,13 @@ const Tetris = () => {
       ) : (
       <div>
       <Display text={`Score: ${score}`}/>
-      <Display text={`Rows: ${rows}`}/>
+      <Display text={`Lines: ${rows}`}/>
       <Display text={`Level: ${level + 1}`}/>
       </div>
       )}
       <StartButton callback={startGame} />
+      <Display text={`Best Score: ${currentBest}`} />
+      <Display text="Most Lines Cleared:" />
       </aside>
       </StyledTetris>
       </StyledTetrisWrapper>

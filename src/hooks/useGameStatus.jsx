@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 export const useGameStatus = clearedRows => {
+  const [currentBest, setCurrentBest] = useState(localStorage.bestScore ? JSON.parse(localStorage.bestScore) : 0)
   const [score, setScore] = useState(0);
   const [rows, setRows] = useState(0);
   const [level, setLevel] = useState(0);
@@ -12,12 +13,16 @@ export const useGameStatus = clearedRows => {
       setScore(prev => prev + linePoints[clearedRows - 1] * (level + 1));
       setRows(prev => prev + clearedRows);
     }
+    if (score >= currentBest) {
+      setCurrentBest(score);
+      localStorage.setItem("bestScore", JSON.stringify(currentBest))
+    }
   }, [level, linePoints, clearedRows]);
 
   useEffect(() => {
     calcScore();
   }, [calcScore, clearedRows, score]);
 
-  return [score, setScore, rows, setRows, level, setLevel];
+  return [score, setScore, rows, setRows, level, setLevel, currentBest, setCurrentBest];
 
 };

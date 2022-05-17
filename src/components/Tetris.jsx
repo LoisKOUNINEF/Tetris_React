@@ -15,7 +15,7 @@ const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
-  const [player, updatePlayerPos, resetPlayer] = usePlayer();
+  const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage] = useStage(player, resetPlayer);
 
   const movePlayer = dir => {
@@ -30,6 +30,14 @@ const Tetris = () => {
 
   const moveRight = () => {
     movePlayer(1)
+  }
+
+  const rotateRight = () => {
+    playerRotate(stage, 1);
+  }
+
+  const rotateLeft = () => {
+    playerRotate(stage, -1);
   }
 
   const startGame = () => {
@@ -54,12 +62,6 @@ const Tetris = () => {
     drop();
   }
 
-  // const move = ({ keycode }) => {
-  //   if (!gameOver) {
-
-  //   }
-  // }
-
   const move = (e) => {
     if (!gameOver) {
       switch (e.key) {
@@ -72,9 +74,15 @@ const Tetris = () => {
         case 'ArrowRight':
         moveRight()
         break
-        // case 'Space':
-        // startGame()
-        // break
+        case 'ArrowUp':
+        rotateRight();
+        break
+        case 'a':
+        rotateLeft();
+        break
+        case 'e':
+        rotateRight();
+        break
       }
     }
   }

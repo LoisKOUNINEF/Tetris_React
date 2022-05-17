@@ -20,6 +20,8 @@ export const usePlayer = () => {
     const clonedPlayer = JSON.parse(JSON.stringify(player));
     clonedPlayer.tetromino = rotate(clonedPlayer.tetromino, dir);
 
+// this part of the code prevents rotating through walls or other tetrominoes
+// Let's read it at least once a day to fully understand it ;)
     const pos = clonedPlayer.pos.x;
     let offset = 1;
     while(checkCollision(clonedPlayer, stage, {x: 0, y: 0})) {

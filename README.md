@@ -9,9 +9,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Features added
 - Function for controls
 - Best Score with localStorage
+- Deploy to github pages
 
 ### todo
 - Add most lines localstorage
-- Deploy to github pages
 - Display next Tetromino
 - Add touch events

@@ -1,6 +1,6 @@
 ## Tetris with React.js
 
-- [GitHubPage deployment]()
+- [GitHubPage deployment](https://loiskouninef.github.io/Tetris_React)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

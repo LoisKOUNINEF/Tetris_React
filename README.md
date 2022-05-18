@@ -11,6 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Best Score with localStorage
 
 ### todo
-
+- Add most lines localstorage
+- Deploy to github pages
 - Display next Tetromino
 - Add touch events

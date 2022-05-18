@@ -21,6 +21,8 @@ const Tetris = () => {
   const [stage, setStage, clearedRows] = useStage(player, resetPlayer);
   const [score, setScore, rows, setRows, level, setLevel, currentBest, setCurrentBest] = useGameStatus(clearedRows);
 
+  let dropSpeed = 1000 / (level + 1) + 200
+
   const movePlayer = dir => {
     if (!checkCollision(player, stage, { x: dir, y: 0})) {
       updatePlayerPos({ x: dir, y: 0 });
@@ -57,7 +59,7 @@ const Tetris = () => {
   const drop = () => {
     if (rows > (level + 1) * 10) {
       setLevel(prev => prev + 1);
-      setDropTime(1000 / (level + 1) + 200);
+      setDropTime(dropSpeed);
     }
     if (!checkCollision(player, stage, { x: 0, y: 1 })) {
       updatePlayerPos({ x: 0, y: 1, collided: false })
@@ -79,7 +81,7 @@ const Tetris = () => {
     if (!gameOver) {
       switch (e.key) {
         case 'ArrowDown':
-        setDropTime(1000 / (level + 1) + 200);
+        setDropTime(dropSpeed);
         break
       }
     }
@@ -123,7 +125,11 @@ const Tetris = () => {
     <Stage stage={stage} />
     <aside>
     {gameOver ? (
+      <div>
+      <Display text={`Score: ${score}`}/>
+      <Display text={`Lines: ${rows}`}/>
       <Display gameOver={gameOver} text="Game Over" />
+      </div>
       ) : (
       <div>
       <Display text={`Score: ${score}`}/>

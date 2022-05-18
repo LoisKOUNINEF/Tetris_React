@@ -133,7 +133,6 @@ const Tetris = () => {
       )}
       <StartButton callback={startGame} />
       <Display text={`Best Score: ${currentBest}`} />
-      <Display text="Most Lines Cleared:" />
       </aside>
       </StyledTetris>
       </StyledTetrisWrapper>

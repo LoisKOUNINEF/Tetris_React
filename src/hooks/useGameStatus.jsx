@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 export const useGameStatus = clearedRows => {
-  const [currentBest, setCurrentBest] = useState(localStorage.bestSnakeScore ? JSON.parse(localStorage.bestSnakeScore) : 0)
+  const [currentBest, setCurrentBest] = useState(localStorage.bestTetrisScore ? JSON.parse(localStorage.bestTetrisScore) : 0)
   const [score, setScore] = useState(0);
   const [rows, setRows] = useState(0);
   const [level, setLevel] = useState(0);
@@ -15,7 +15,7 @@ export const useGameStatus = clearedRows => {
     }
     if (score >= currentBest) {
       setCurrentBest(score);
-      localStorage.setItem("bestSnakeScore", JSON.stringify(currentBest))
+      localStorage.setItem("bestTetrisScore", JSON.stringify(currentBest))
     }
   }, [level, linePoints, clearedRows]);
 

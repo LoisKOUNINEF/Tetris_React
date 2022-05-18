@@ -53,7 +53,7 @@ const Tetris = () => {
     setScore(0);
     setRows(0);
     setLevel(0);
-    setCurrentBest(localStorage.bestSnakeScore ? JSON.parse(localStorage.bestSnakeScore) : 0);
+    setCurrentBest(localStorage.bestTetrisScore ? JSON.parse(localStorage.bestTetrisScore) : 0);
   }
 
   const drop = () => {

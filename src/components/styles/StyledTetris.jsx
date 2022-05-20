@@ -4,6 +4,10 @@ import bgImage from '../../img/bg.png';
 export const StyledTetrisWrapper = styled.div`
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   background: url(${bgImage}) #000;
   background-size: cover;
   overflow: hidden;
@@ -12,14 +16,14 @@ export const StyledTetrisWrapper = styled.div`
 export const StyledTetris = styled.div`
   display: flex;
   align-items: flex-start;
-  padding: 40px;
+  padding: 3em;
   margin: 0 auto;
-  max-width: 900px;
+  width: min(100%, 80rem);
 
   aside {
     width: 100%;
-    max-width: 200px;
+    max-width: 15rem;
     display: block;
-    paddong: 0 20px;
+    padding: 0 1.5em;
   }
 `

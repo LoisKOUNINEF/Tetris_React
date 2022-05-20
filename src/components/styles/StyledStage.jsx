@@ -7,9 +7,8 @@ export const StyledStage = styled.div`
   calc(25vw / ${props => props.width})
   );
   grid-template-columns: repeat(${props => props.width}, 1fr);
-  grid-gap: 1px;
-  border: 2px solid #333;
-  width: 100%;
-  max-width: 25vw;
+  grid-gap: 0.08em;
+  border: 0.12em solid #333;
+  width: min(100%, 25vw);
   background-color: #111;
 `

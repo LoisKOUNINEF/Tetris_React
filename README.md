@@ -12,6 +12,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Deploy to github pages
 
 ### todo
-- Add most lines localstorage
 - Display next Tetromino
 - Add touch events & responsive design
+- Add instructions

@@ -17,7 +17,7 @@ export const useGameStatus = clearedRows => {
       setCurrentBest(score);
       localStorage.setItem("bestTetrisScore", JSON.stringify(currentBest))
     }
-  }, [level, linePoints, clearedRows]);
+  }, [level, linePoints, clearedRows, currentBest, score]);
 
   useEffect(() => {
     calcScore();

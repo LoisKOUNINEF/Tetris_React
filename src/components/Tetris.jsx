@@ -56,6 +56,35 @@ const Tetris = () => {
     setCurrentBest(localStorage.bestTetrisScore ? JSON.parse(localStorage.bestTetrisScore) : 0);
   }
 
+    const submitScore = () => {
+    let userScore = parseInt(localStorage.bestTetrisScore);
+
+    const userEmail = localStorage.sharcadEmail
+    ? JSON.parse(localStorage.sharcadEmail)
+    : prompt("Enter your shaRcade email to send your score !");
+
+    if (userEmail) {
+      localStorage.setItem("sharcadEmail", JSON.stringify(userEmail));
+
+      const data = {
+        "score_token" : {
+          "hi_score" : userScore,
+          "api_key" : "4BmxyQvTrc6wRTkm",
+          "user_email" : userEmail
+        }
+      };
+      fetch(`https://sharcade-api.herokuapp.com/sharcade_api`, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .catch((error) => console.log(error));
+    }
+  }
+
+
   const drop = () => {
     if (rows > (level + 1) * 10) {
       setLevel(prev => prev + 1);
@@ -65,6 +94,7 @@ const Tetris = () => {
       updatePlayerPos({ x: 0, y: 1, collided: false })
     } else {
       if (player.pos.y < 1) {
+        submitScore();
         setGameOver(true);
         setDropTime(null);
       }

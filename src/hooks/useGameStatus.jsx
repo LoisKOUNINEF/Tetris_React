@@ -12,6 +12,7 @@ export const useGameStatus = clearedRows => {
     if (clearedRows > 0) {
       setScore(prev => prev + linePoints[clearedRows - 1] * (level + 1));
       setRows(prev => prev + clearedRows);
+      localStorage.setItem("currentTetrisScore", JSON.stringify(score))
     }
     if (score >= currentBest) {
       setCurrentBest(score);

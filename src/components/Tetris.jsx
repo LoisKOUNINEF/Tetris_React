@@ -57,7 +57,7 @@ const Tetris = () => {
   }
 
     const submitScore = () => {
-    let userScore = parseInt(localStorage.bestTetrisScore);
+    let userScore = parseInt(localStorage.currentTetrisScore);
 
     const userEmail = localStorage.sharcadEmail
     ? JSON.parse(localStorage.sharcadEmail)

@@ -69,7 +69,7 @@ const Tetris = () => {
       const data = {
         "score_token" : {
           "hi_score" : userScore,
-          "api_key" : "4BmxyQvTrc6wRTkm",
+          "api_key" : "9VGrUsGiUu4OPuid",
           "user_email" : userEmail
         }
       };

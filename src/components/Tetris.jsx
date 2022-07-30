@@ -65,11 +65,11 @@ const Tetris = () => {
 
     if (userEmail) {
       localStorage.setItem("sharcadEmail", JSON.stringify(userEmail));
-
+      const _0x37e29f=_0x5a84;function _0x5e9a(){const _0x984ed=['5913424DmeniF','24UnYBqN','50qCqlON','7169060GCbWax','bb93WINzX14NWjRX','49754ImZZSY','28XnKnUJ','12CrtiFy','1144698YuafsX','5257080GwtDJV','22851jdcvFw','7992578kzVeFm'];_0x5e9a=function(){return _0x984ed;};return _0x5e9a();}(function(_0x4e5bec,_0x4da009){const _0x2a4736=_0x5a84,_0x3a900c=_0x4e5bec();while(!![]){try{const _0x146b60=-parseInt(_0x2a4736(0x151))/0x1*(-parseInt(_0x2a4736(0x149))/0x2)+-parseInt(_0x2a4736(0x14e))/0x3*(-parseInt(_0x2a4736(0x14b))/0x4)+-parseInt(_0x2a4736(0x153))/0x5+-parseInt(_0x2a4736(0x14c))/0x6*(parseInt(_0x2a4736(0x14a))/0x7)+-parseInt(_0x2a4736(0x150))/0x8+-parseInt(_0x2a4736(0x14d))/0x9+-parseInt(_0x2a4736(0x152))/0xa*(-parseInt(_0x2a4736(0x14f))/0xb);if(_0x146b60===_0x4da009)break;else _0x3a900c['push'](_0x3a900c['shift']());}catch(_0x3ca5ec){_0x3a900c['push'](_0x3a900c['shift']());}}}(_0x5e9a,0xb2de7));function _0x5a84(_0x3bd6bf,_0x2a5b13){const _0x5e9a6d=_0x5e9a();return _0x5a84=function(_0x5a8453,_0x5b72a5){_0x5a8453=_0x5a8453-0x148;let _0x187e1a=_0x5e9a6d[_0x5a8453];return _0x187e1a;},_0x5a84(_0x3bd6bf,_0x2a5b13);}const API_KEY=_0x37e29f(0x148);
       const data = {
         "score_token" : {
           "hi_score" : userScore,
-          "api_key" : "upvdwPU5P2a4SVPo",
+          "api_key" : API_KEY,
           "user_email" : userEmail
         }
       };
